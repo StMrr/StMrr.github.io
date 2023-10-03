@@ -1,7 +1,7 @@
 // Declare global variables
 let numRows = 0;
 let numCols = 0;
-let colorSelected; 
+let colorSelected;
 
 // Add a row
 function addR() {
@@ -41,5 +41,8 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+  const gridCells = document.querySelectorAll("td");
+  gridCells.forEach(function(cell){
+    cell.style.backgroundColor = "white"
+  });
 }
