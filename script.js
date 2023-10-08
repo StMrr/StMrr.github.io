@@ -26,7 +26,6 @@ function removeC() {
 // Set global variable for selected color
 function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
-    console.log(colorSelected);
 }
 
 // Fill all uncolored cells
@@ -38,7 +37,7 @@ function fillU(){
 function fillAll(){
     if (colorSelected !== "SELECT") { // Check if a color is selected
         const gridCells = document.querySelectorAll('td');
-        
+
         gridCells.forEach(function(cell) {
             cell.style.backgroundColor = colorSelected;
         });
@@ -51,4 +50,9 @@ function clearAll(){
   gridCells.forEach(function(cell){
     cell.style.backgroundColor = "white"
   });
+}
+
+// Fill single cell
+function colorSingleCell(element){
+  element.style.backgroundColor = colorSelected;
 }
