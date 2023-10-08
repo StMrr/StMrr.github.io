@@ -10,7 +10,15 @@ function addR() {
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    const grid = document.getElementById("grid");
+
+    for (let i = 0; i < grid.rows.length; i++) {
+        const cell = grid.rows[i].insertCell(-1);
+        cell.onclick = function () {
+            colorSingleCell(this);
+        };
+    }
+    numCols++;
 }
 
 // Remove a row
