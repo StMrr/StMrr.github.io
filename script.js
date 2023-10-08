@@ -36,7 +36,13 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    if (colorSelected !== "SELECT") { // Check if a color is selected
+        const gridCells = document.querySelectorAll('td');
+        
+        gridCells.forEach(function(cell) {
+            cell.style.backgroundColor = colorSelected;
+        });
+    }
 }
 
 // Clear all cells
