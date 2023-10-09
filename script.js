@@ -3,15 +3,38 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 
-// Add a row
-function addR() {
-    let Grid = document.getElementById("grid");
-    let r = Grid.insertRow(-1);
-    let cell1 = r.insert(0);
-    let cell2 = r.insert(1);
-    let cell3 = r.insert(2);
 
+
+function addR() { // Add a row
+    var Table = document.getElementById('grid');
+
+    if (Table.rows.length === 0) {
+        var newR = Table.insertRow();
+
+        var newCell = newR.insertCell();
+
+        newCell.className = 'cell';
+        newCell.addEventListener('click', function() { changeColor(newCell) });
+    } 
+    
+    else {
+        // Clone the first row to create a new row
+        var firstRow = Table.rows[0];
+        var newR = firstRow.cloneNode(true);
+
+        // Reset background color of all cells in new row
+        var ColorCell = newR.querySelectorAll('.cell');
+        for (var i = 0; i < ColorCell.length; i++) {
+            ColorCell[i].style.backgroundColor = '';
+        }
+
+        // Append the new row to the table
+        Table.appendChild(newR);
+
+    }
 }
+
+
 
 // Add a column
 function addC() {
