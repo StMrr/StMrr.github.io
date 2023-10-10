@@ -2,7 +2,7 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected;
-let colorSelected;
+
 
 
 
@@ -77,7 +77,7 @@ function addR() { // Add a row
 
 // Add a column
 function addC() {
-    const grid = document.getElementById("grid");
+    var grid = document.getElementById("grid");
 
     for (let i = 0; i < grid.rows.length; i++) {
         const cell = grid.rows[i].insertCell(-1);
@@ -86,7 +86,7 @@ function addC() {
         };
     }
     numCols++;
-    const grid = document.getElementById("grid");
+    var grid = document.getElementById("grid");
 
     for (let i = 0; i < grid.rows.length; i++) {
         const cell = grid.rows[i].insertCell(-1);
@@ -113,7 +113,7 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    const grid = document.getElementById("grid");
+    var grid = document.getElementById("grid");
 	if (numCols > 0) {
 		for(let i = 0; i < grid.rows.length;i++) {
 			grid.rows[i].deleteCell(-1); 
@@ -164,7 +164,7 @@ function clearAll(){
 // Fill single cell
 function colorSingleCell(element){
   element.style.backgroundColor = colorSelected;
-}
+
 
   const gridCells = document.querySelectorAll("td");
   gridCells.forEach(function(cell){
