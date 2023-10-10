@@ -6,35 +6,17 @@ let colorSelected;
 
 
 function addR() { // Add a row
-    var Table = document.getElementById('grid');
+    const Table = document.getElementById('grid'); 
+    const newRow = grid.insertRow(-1);
+    newCols = grid.rows[0].cells.length; 
 
-    if (Table.rows.length == 0) {
-        var newR = Table.insertRow();
-
-        var newCell = newR.insertCell();
-
-        newCell.className = 'cell';
-        newCell.addEventListener('click', function() { changeColor(newCell) });
-    } 
-    
-    else {
-        // makes first row + create a new 
-        var originRow = Table.rows[0];
-        
-            var newR = originRow.cloneNode(true);
-
-        // clears background color of cells in new row
-        var ColorCell = newR.querySelectorAll('.cell');
-        
-            for (var i = 0; i < ColorCell.length; i++) {
-                
-                ColorCell[i].style.backgroundColor = '';
-            }
-
-        // Adds new row to the table
-        Table.appendChild(newR);
-
+    for (let i = 0; i < newCols; i++ ) {
+        const cell = newRow.insertCell(i);
+        cell.onclick = function () {
+            colorSingleCell(this);
+            };
     }
+   numRows++;
 }
 
 
@@ -95,13 +77,6 @@ function fillAll(){
     if (colorSelected !== "SELECT") { // Check if a color is selected
         const gridCells = document.querySelectorAll('td');
         
-        gridCells.forEach(function(cell) {
-            cell.style.backgroundColor = colorSelected;
-        });
-    }
-    if (colorSelected !== "SELECT") { // Check if a color is selected
-        const gridCells = document.querySelectorAll('td');
-
         gridCells.forEach(function(cell) {
             cell.style.backgroundColor = colorSelected;
         });
