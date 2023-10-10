@@ -161,16 +161,6 @@ function clearAll(){
   });
 }
 
-// Fill single cell
-function colorSingleCell(element){
-  element.style.backgroundColor = colorSelected;
-
-
-  const gridCells = document.querySelectorAll("td");
-  gridCells.forEach(function(cell){
-    cell.style.backgroundColor = "white"
-  });
-}
 
 // Fill single cell
 function colorSingleCell(element){
