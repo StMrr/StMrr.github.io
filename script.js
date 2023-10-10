@@ -77,7 +77,7 @@ function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
 }
 
-// Fill all uncolored cells
+
 function fillU() {
     if (colorSelected !== "SELECT") { // Check if a color is selected
         const gridCells = document.querySelectorAll('td');
@@ -92,6 +92,13 @@ function fillU() {
 
 // Fill all cells
 function fillAll(){
+    if (colorSelected !== "SELECT") { // Check if a color is selected
+        const gridCells = document.querySelectorAll('td');
+        
+        gridCells.forEach(function(cell) {
+            cell.style.backgroundColor = colorSelected;
+        });
+    }
     if (colorSelected !== "SELECT") { // Check if a color is selected
         const gridCells = document.querySelectorAll('td');
 
