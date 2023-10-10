@@ -34,7 +34,7 @@ function addC() {
     numCols++;
 }
 
-// Remove a row
+// Remove a row 
 function removeR() {
     
     var grid = document.getElementById('grid');
@@ -59,16 +59,24 @@ function selectColor(){
     colorSelected = document.getElementById("selectedColorId").value;
 }
 
-// Fill all uncolored cells
-function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+
+function fillU() {
+    if (colorSelected !== "SELECT") { // Check if a color is selected
+        const gridCells = document.querySelectorAll('td');
+
+        gridCells.forEach(function(cell) {
+            if (cell.style.backgroundColor === "" || cell.style.backgroundColor === "white") {
+                cell.style.backgroundColor = colorSelected;
+            }
+        });
+    }
 }
 
 // Fill all cells
 function fillAll(){
     if (colorSelected !== "SELECT") { // Check if a color is selected
         const gridCells = document.querySelectorAll('td');
-
+        
         gridCells.forEach(function(cell) {
             cell.style.backgroundColor = colorSelected;
         });
