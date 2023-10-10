@@ -8,7 +8,7 @@ let colorSelected;
 function addR() { // Add a row
     var Table = document.getElementById('grid');
 
-    if (Table.rows.length === 0) {
+    if (Table.rows.length == 0) {
         var newR = Table.insertRow();
 
         var newCell = newR.insertCell();
@@ -18,17 +18,20 @@ function addR() { // Add a row
     } 
     
     else {
-        // Clone the first row to create a new row
-        var firstRow = Table.rows[0];
-        var newR = firstRow.cloneNode(true);
+        // makes first row + create a new 
+        var originRow = Table.rows[0];
+        
+            var newR = originRow.cloneNode(true);
 
-        // Reset background color of all cells in new row
+        // clears background color of cells in new row
         var ColorCell = newR.querySelectorAll('.cell');
-        for (var i = 0; i < ColorCell.length; i++) {
-            ColorCell[i].style.backgroundColor = '';
-        }
+        
+            for (var i = 0; i < ColorCell.length; i++) {
+                
+                ColorCell[i].style.backgroundColor = '';
+            }
 
-        // Append the new row to the table
+        // Adds new row to the table
         Table.appendChild(newR);
 
     }
