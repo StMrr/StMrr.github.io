@@ -5,42 +5,6 @@ let colorSelected;
 
 
 
-
-function addR() { // Add a row
-    var Table = document.getElementById('grid');
-
-    if (Table.rows.length == 0) {
-        var newR = Table.insertRow();
-
-        var newCell = newR.insertCell();
-
-        newCell.className = 'cell';
-        newCell.addEventListener('click', function() { changeColor(newCell) });
-    } 
-    
-    else {
-        // makes first row + create a new 
-        var originRow = Table.rows[0];
-        
-            var newR = originRow.cloneNode(true);
-
-        // clears background color of cells in new row
-        var ColorCell = newR.querySelectorAll('.cell');
-        
-            for (var i = 0; i < ColorCell.length; i++) {
-                
-                ColorCell[i].style.backgroundColor = '';
-            }
-
-        // Adds new row to the table
-        Table.appendChild(newR);
-
-    }
-}
-
-
-
-
 function addR() { // Add a row
     var Table = document.getElementById('grid');
 
