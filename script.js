@@ -52,7 +52,7 @@ function addC() {
     numCols++;
 }
 
-// Remove a row
+// Remove a row 
 function removeR() {
     
     var grid = document.getElementById('grid');
